@@ -8,6 +8,7 @@
 #include <QDebug>
 #include <fstream>
 #include <io.h>
+#include <QMessageBox>
 using namespace std;
 
 namespace Ui {
@@ -26,8 +27,6 @@ private slots:
     void on_comboBox_activated(int index);
 
     void on_pushButton_clicked();
-
-    void on_pushButton_2_clicked();
 
     void on_radioButton_clicked();
 

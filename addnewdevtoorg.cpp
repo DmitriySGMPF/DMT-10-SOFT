@@ -90,18 +90,13 @@ void AddNewDevToOrg::on_pushButton_clicked()
     }
 
     settings.setValue("devices/" + QString(ID) + "/user", name);
-    qDebug() << settings.value("devices/" + Id + "/user").toString();
-    deleteLater();
     }
     else
     {
-        qDebug() << "Вытащи и вставь ещё раз";
-    }
-}
+        QMessageBox::warning(this, "Систеная ошибка порта USB", "Возникла ошибка. Пожалуйста, извлеките устройство и попробуйте снова.");
 
-void AddNewDevToOrg::on_pushButton_2_clicked()
-{
-    deleteLater();
+    }
+    close();
 }
 
 bool AddNewDevToOrg::setDriveToDevice(char drive, char *ID)

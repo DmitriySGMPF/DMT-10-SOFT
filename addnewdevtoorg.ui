@@ -17,55 +17,13 @@
    <string notr="true">background-color: rgb(179, 167, 162);
 </string>
   </property>
-  <widget class="QPushButton" name="pushButton_2">
-   <property name="geometry">
-    <rect>
-     <x>53</x>
-     <y>323</y>
-     <width>160</width>
-     <height>27</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>160</width>
-     <height>25</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>160</width>
-     <height>30</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">	background-color: rgb(100, 95, 94);
-	color: rgb(249, 244, 232);</string>
-   </property>
-   <property name="text">
-    <string>Пропустить</string>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="default">
-    <bool>true</bool>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
      <x>284</x>
-     <y>323</y>
+     <y>309</y>
      <width>160</width>
-     <height>27</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -77,7 +35,7 @@
    <property name="maximumSize">
     <size>
      <width>160</width>
-     <height>30</height>
+     <height>50</height>
     </size>
    </property>
    <property name="font">
