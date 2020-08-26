@@ -60,28 +60,20 @@ void ScrollInfoDev::deleteInfoDevSlot(int k)
     k--;
     int row = k/4;
     int col = k%4;
-    qDebug() << 11111111;
     layout->removeItem(layout->itemAtPosition(row,col));
-    qDebug() << 22222222;
     InfoList[k]->~InfoDev();
-    //for (int i  = 0; i < )
+    qDebug() << "--Удаление виджета с экрана";
     qDebug() << k;
-    qDebug() << k;
-    qDebug() << k;
-    qDebug() << k;
-    qDebug() << k;
-    qDebug() << k;
-    qDebug() << k;
+    qDebug() << "---------------------------";
     InfoList.erase(InfoList.begin()+k);
-    //
 
     for(int i = 0; i < InfoList.size(); i++){
 
         int row = i/4;
         int col = i%4;
-        //QThread::msleep(150);
-        qDebug() << row;
-        qDebug() << col;
+
+        QThread::msleep(30);
+
         layout->addWidget(InfoList[i],row,col);
         container = new QWidget;
         container -> setLayout(layout);
@@ -108,7 +100,6 @@ void ScrollInfoDev::regNewDevice(void *Handle, int statusDev)
 
 void ScrollInfoDev::refreshInfoDevSlot(int k, unsigned short uBattery, int downloadStatus)
 {
-    //qDebug() << "NOOOOOOOOOOOOOOOOOOOOOOO";
     //InfoList[k-1]->SetBatVal(uBattery);
     qDebug() << "NOOOOOOOOOOOOOOOOOOOOOOO";
     InfoList[k-1]->SetDownloadProgress(downloadStatus);

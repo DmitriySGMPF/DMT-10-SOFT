@@ -26,9 +26,15 @@ void BackEnd::run()
     {
         //DMT10
         amount = EnumStorageList(deviceDev,0);
-        qDebug() << "DMT10";
+        qDebug() << "________________________________________";
+        qDebug() << "Количество устройств";
         qDebug() << amount;
-        qDebug() << "DMT10";
+        qDebug() << "Количество actual устройств";
+        qDebug() << actual_amount;
+        qDebug() << " ";
+        qDebug() << "Количество видимых на экране устройств";
+        qDebug() << NumberOfDisplayed;
+        qDebug() << "________________________________________";
         if (amount>actual_amount){
             for(int i=0; i < amount; i++){
 
@@ -47,6 +53,9 @@ void BackEnd::run()
                 if(dev->addNewDevice()){
                     List.push_back(dev);
                     actual_amount++;
+                    qDebug() << "Увеличение количества актуальных устройств";
+                    qDebug() << actual_amount;
+                    qDebug() << "__________________________________________";
                 }
 
             }
@@ -68,6 +77,7 @@ void BackEnd::run()
 
         delay(3000);
     }
+
     emit finished(); // Уничтожение программе при выходе из цикла с помощью слота stop
 }
 
@@ -88,12 +98,12 @@ void BackEnd::uppendNumInfoWin(int k)//Функция, которая обнов
 
 void BackEnd::delay(int mlsec) //Функция отзывчивой задержки
 {
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 100; i++){
         if (!stopFlag){
             emit finished();
             break;
         }
-        QThread::msleep(mlsec/10);
+        QThread::msleep(mlsec/100);
     }
 
 }

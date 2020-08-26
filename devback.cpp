@@ -67,28 +67,23 @@ bool DevBack::addNewDevice()//Функция добавления и иници�
     USER = settings.value("devices/" + Id + "/user").toString();
 
 
-    if(settings.value("devices/" + Id+"/user").toString() != ""){
+    if(settings.value("devices/" + Id+"/user").toString() != "")
+    {
 
            if(settings.value("uses/" + Id) != "active")
            {
                 settings.setValue("uses/" + Id, "active");
-
                 devConnect = true;
                 *NumberOfDisplayed = *NumberOfDisplayed + 1;
                 numInfoWin = *NumberOfDisplayed;
                 GetBattery(deviceHandle, &Bat);
-
-
-
                 connect(this, &DevBack::CreateWin, scroll, &ScrollInfoDev::CreateInfoWin);
                 emit CreateWin(numInfoWin,USER, Bat, Id);
                 QThread::msleep(500);
-
-
-
                 SetMSCMode(deviceHandle);
                 QThread::msleep(1000);
                 drive = sortDr->getDrives(ID);
+
                 //Загрузка данных
                 QDir sDir = QDir(QString(drive) + ":/" + "DCIM/");
                 QString path = settings.value("setting/firstpath", "C:/Bodycam").toString();//
@@ -101,7 +96,6 @@ bool DevBack::addNewDevice()//Функция добавления и иници�
                 path += "/";
                 path += settings.value("devices/" + QString(ID) + "/user").toString();
 
-                qDebug()<<path;
 
                 if (!QDir(path).exists())
                 {
@@ -122,6 +116,10 @@ bool DevBack::addNewDevice()//Функция добавления и иници�
                 workThread.start();//Запуск скачивания в отдельном потоке
                 return true;
 
+           }
+           else
+           {
+               return false;
            }
 
     }
@@ -153,6 +151,7 @@ bool DevBack::addNewDevice()//Функция добавления и иници�
         QThread::msleep(50);
 
         return true;
+
         }
         else
         {
