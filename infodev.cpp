@@ -15,8 +15,9 @@ void InfoDev::SetUser(QString USER_NAME)
 
 void InfoDev::SetBatVal(int bat)
 {
-    ui->bat_1->setValue(bat);
-
+    if(exStatus != 0){
+        ui->bat_1->setValue(bat);
+    }
 }
 
 void InfoDev::SetDownloadProgress(int progress)
@@ -32,7 +33,6 @@ void InfoDev::SetStatusDev(QString ID)
     int w = ui->DMT10->width();
     int h = ui->DMT10->height();/////////////////////////
     qDebug() << exStatus;
-    qDebug() << "sfvgbggds";
     if(exStatus == 0)
     {
         ui->bat_1->deleteLater();

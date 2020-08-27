@@ -73,6 +73,10 @@ void BackEnd::run()
                 actual_amount--;
                 i--;
             }
+            else
+            {
+                //List[i]->ReflashBat();
+            }
         }
 
         delay(3000);

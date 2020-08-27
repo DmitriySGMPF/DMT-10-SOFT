@@ -67,6 +67,8 @@ FORMS += \
 
 QT += multimedia multimediawidgets
 
+RC_FILE = icon.rc
+
 LIBS += "D:\DMT10.dll"
 #LIBS += "D:\DMT22.dll"
 #LIBS += "D:\DMT22.lib"

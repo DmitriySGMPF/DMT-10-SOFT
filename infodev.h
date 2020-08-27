@@ -22,6 +22,7 @@ public:
     void SetStatusDev(QString ID);
     explicit InfoDev(QWidget *parent = nullptr);
     ~InfoDev();
+
 private:
     Ui::InfoDev *ui;
     int exStatus;

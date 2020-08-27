@@ -29,6 +29,7 @@ public:
     ScrollInfoDev *scroll;
     int numInfoWin;
     bool CheckConnect();
+    void ReflashBat();
 signals:
     void er(QString mes1, QString mes2);
     void regNewDev(DEV_HANDLE Handle, int statusDev);

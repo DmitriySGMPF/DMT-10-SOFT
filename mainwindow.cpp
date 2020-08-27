@@ -67,7 +67,7 @@ void MainWindow::on_pushButton_clicked()
 void MainWindow::ext()
 {
     back->stop();  // ждем пока выйдет
-    QThread::msleep(500);
+    QThread::msleep(1500);
     backEndThread.terminate();
     deleteLater();
 }

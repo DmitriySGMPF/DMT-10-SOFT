@@ -30,18 +30,6 @@ DevBack::~DevBack()//Удаление устроства из списка
 
 }
 
-
-/*DEV_HANDLE deviceHandle;
-char pass[8] = "888888";
-char ID[10];
-char compInfo[50];
-char NONE[10];
-unsigned short Bat;
-*/
-
-
-
-
 bool DevBack::CheckConnect()
 {
     int status = ConnectDevice(deviceDev, &deviceHandle);
@@ -50,6 +38,12 @@ bool DevBack::CheckConnect()
         return 1;
     }
     return 0;
+}
+
+void DevBack::ReflashBat()
+{
+    GetBattery(deviceHandle, &Bat);
+    scroll->refreshInfoDevSlot(numInfoWin, Bat, -1);
 }
 
 
@@ -78,6 +72,7 @@ bool DevBack::addNewDevice()//Функция добавления и иници�
                 numInfoWin = *NumberOfDisplayed;
                 GetBattery(deviceHandle, &Bat);
                 connect(this, &DevBack::CreateWin, scroll, &ScrollInfoDev::CreateInfoWin);
+
                 emit CreateWin(numInfoWin,USER, Bat, Id);
                 QThread::msleep(500);
                 SetMSCMode(deviceHandle);
@@ -95,7 +90,6 @@ bool DevBack::addNewDevice()//Функция добавления и иници�
 
                 path += "/";
                 path += settings.value("devices/" + QString(ID) + "/user").toString();
-
 
                 if (!QDir(path).exists())
                 {

@@ -100,7 +100,10 @@ void ScrollInfoDev::regNewDevice(void *Handle, int statusDev)
 
 void ScrollInfoDev::refreshInfoDevSlot(int k, unsigned short uBattery, int downloadStatus)
 {
-    //InfoList[k-1]->SetBatVal(uBattery);
-    qDebug() << "NOOOOOOOOOOOOOOOOOOOOOOO";
-    InfoList[k-1]->SetDownloadProgress(downloadStatus);
+        InfoList[k-1]->SetBatVal(uBattery);
+
+        if (downloadStatus != -1)
+        {
+            InfoList[k-1]->SetDownloadProgress(downloadStatus);
+        }
 }
